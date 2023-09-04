@@ -3,6 +3,16 @@ import styled from 'styled-components'
 
 const Button = styled.button`
   background-color: ${(props) => props.theme.button.primary};
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+
+  &:hover {
+    background-color:${(props) => props.theme.button.primaryHover};  
+  }
+  &:active {
+    transform: scale(0.95);
+    background-color:${(props) => props.theme.button.primaryActive};
+  }
 `
 const Label = styled.p`
   color: ${(props) => props.theme.text.secondary};

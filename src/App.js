@@ -1,15 +1,20 @@
 import React, { lazy, Suspense } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes  } from 'react-router-dom'
 import { ROUTE_DASHBOARD } from './routes/routes'
 import { ThemeProvider } from './contexts/ThemeContext'
+
+import AppContainer from './components/app-container/AppContainer';
 
 const Home = lazy(() => import('./pages/home/Home'))
 const Dashboard = lazy(() => import('./pages/dashboard/Dashboard'))
 
-function App() {
+const App=()=> {
+
   return (
     <ThemeProvider>
       <BrowserRouter>
+      <AppContainer>
+      
         <Routes>
           <Route
             index
@@ -36,6 +41,7 @@ function App() {
             }
           />
         </Routes>
+        </AppContainer>
       </BrowserRouter>
     </ThemeProvider>
   )
