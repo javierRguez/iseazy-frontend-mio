@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 import useTheme from '../../hooks/useTheme'
 
-const AppContainer = styled.div`
+import GameBoardContainer from '../../containers/GameBoardContainer'
+
+const Container = styled.div`
   background-color: ${(props) => props.theme.background.primary};
   
 `
@@ -9,7 +11,11 @@ const AppContainer = styled.div`
 
 const Dashboard = () => {
   const { currentTheme } = useTheme()
-  return <AppContainer className="w-full h-full flex justify-center items-center" theme={currentTheme}>Dashboard</AppContainer>
+  return <Container className="w-full h-full flex justify-center items-center" theme={currentTheme}>
+    <GameBoardContainer />
+
+
+  </Container>
 }
 
 export default Dashboard

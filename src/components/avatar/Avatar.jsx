@@ -14,7 +14,7 @@ const AvatarContainer = styled.div`
 const AvatarImage = styled.div`
   width: 100%;
   height: 100%;  
-  background-image: url(${props => props.image});
+  background-image: url(${props => props.src});
   background-size: auto;
   background-position: center;
   background-repeat: no-repeat;
@@ -22,7 +22,7 @@ const AvatarImage = styled.div`
 
 const Avatar = ({ currentTheme, src }) => {
   return (
-    <AvatarContainer className='rounded-full' theme={currentTheme}><AvatarImage image={src} /></AvatarContainer>
+    <AvatarContainer className='rounded-full' theme={currentTheme}><AvatarImage src={src} /></AvatarContainer>
   )
 }
 

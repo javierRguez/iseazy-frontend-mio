@@ -6,7 +6,7 @@ import StartButton from '../../components/start-button/StartButton'
 import Avatar from '../../components/avatar/Avatar';
 import avatarImage from '../../assets/icon/app-icon.png'
 
-const AppContainer = styled.div`
+const Container = styled.div`
   background-color: ${(props) => props.theme.background.primary};
 `
 
@@ -30,7 +30,7 @@ const Home = () => {
   }
 
   return (
-    <AppContainer
+    <Container
       theme={currentTheme}
       className="w-full h-full flex justify-center items-center"
     >
@@ -50,7 +50,7 @@ const Home = () => {
         </div>
       </div>
 
-    </AppContainer>
+    </Container>
   )
 }
 

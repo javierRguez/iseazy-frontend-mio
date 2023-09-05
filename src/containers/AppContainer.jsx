@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import useTheme from '../../hooks/useTheme'
+import useTheme from '../hooks/useTheme'
 import styled from 'styled-components';
 
 const Container = styled.div`

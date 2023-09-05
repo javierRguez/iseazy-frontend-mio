@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes  } from 'react-router-dom'
 import { ROUTE_DASHBOARD } from './routes/routes'
 import { ThemeProvider } from './contexts/ThemeContext'
 
-import AppContainer from './components/app-container/AppContainer';
+import AppContainer from './containers/AppContainer';
 
 const Home = lazy(() => import('./pages/home/Home'))
 const Dashboard = lazy(() => import('./pages/dashboard/Dashboard'))
@@ -19,7 +19,7 @@ const App=()=> {
           <Route
             index
             element={
-              <Suspense fallback={<>...</>}>
+              <Suspense fallback={<>Cargando...</>}>
                 <Home />
               </Suspense>
             }
@@ -27,7 +27,7 @@ const App=()=> {
           <Route
             path={ROUTE_DASHBOARD}
             element={
-              <Suspense fallback={<>...</>}>
+              <Suspense fallback={<>Carganda...</>}>
                 <Dashboard />
               </Suspense>
             }
