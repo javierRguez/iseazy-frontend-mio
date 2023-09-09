@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import image1 from '../assets/img/cards/image1.png'
 import image2 from '../assets/img/cards/image2.png'
-import image3 from '../assets/img/cards/image3.png'
-import image4 from '../assets/img/cards/image4.png'
+
 
 import useTheme from '../hooks/useTheme'
 import Card from '../components/card/Card'
 import styled from 'styled-components';
 import Timer from '../components/timer/Timer'
 import { useGameLogic } from '../hooks/useGameLogic';
+import FinishGameModal from '../components/modal/FinishGameModal';
 
 const GameBoardGrid = styled.div`
   display: grid;
@@ -26,6 +26,7 @@ const TimerContainer = styled.div`
 
 const GameBoardContainer = () => {
   const { currentTheme } = useTheme()
+  const [isModalOpen, setModalOpen] = useState(false);
   const {
     time,
     startTimer,
@@ -34,10 +35,9 @@ const GameBoardContainer = () => {
     shuffledImages,
     handleCardClick,
     stopTimer,
+    resetGame,
   } = useGameLogic([image1,
-    image2,
-    image3,
-    image4,]);
+    image2,]);
 
   useEffect(() => {
     startTimer();
@@ -47,8 +47,26 @@ const GameBoardContainer = () => {
     };
   }, []);
 
+
+
+  useEffect(() => {
+    if (lockedCards.size === 4) {  // Asume que tienes 18 cartas
+
+      setModalOpen(true);
+    }
+  }, [lockedCards]);
+
   const onClickCard = (cardIndex) => {
     handleCardClick(cardIndex)
+  }
+
+  const onCloseModal = () => {
+    setModalOpen(false)
+  }
+
+  const onClickRestartGame = () => {
+    onCloseModal()
+    resetGame()
   }
 
   return (
@@ -68,6 +86,7 @@ const GameBoardContainer = () => {
           />
         ))}
       </GameBoardGrid>
+      <FinishGameModal time={time} isModalOpen={isModalOpen} onClose={onCloseModal} onClickButton={onClickRestartGame} />
     </div>
   );
 };

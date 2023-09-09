@@ -6,7 +6,8 @@ const lightTheme = {
   background: {
     primary: '#F4F4F4',
     modal: '#FFFFFF',
-    avatar:"#E7E8E8"
+    modalOverlay: '#00000099',
+    avatar: "#E7E8E8"
   },
   button: {
     primary: '#E50A4F',
