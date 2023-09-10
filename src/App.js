@@ -14,7 +14,6 @@ const App = () => {
     <ThemeProvider>
       <BrowserRouter>
         <AppContainer>
-
           <Routes>
             <Route
               index

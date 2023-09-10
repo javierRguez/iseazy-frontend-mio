@@ -1,10 +1,7 @@
 import { ActionTypesScoreBoard } from "../../constants/enums/actionTypesScoreBoard"
+import { topScoresState } from "../states/topScoresState";
 
-const initialState = {
-  scores: []
-}
-
-const topScoresReducer = (state = initialState, action) => {
+const topScoresReducer = (state = topScoresState, action) => {
   switch (action.type) {
     case ActionTypesScoreBoard.ADD_SCORE: {
       const newScore = action.payload;

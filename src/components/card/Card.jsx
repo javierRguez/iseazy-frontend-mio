@@ -70,7 +70,7 @@ const Card = ({ imageSrc, imageAlt, number, onClick, locked, flipped }) => {
   const { currentTheme } = useTheme()
 
   return (
-    <CardContainer onClick={!locked ? onClick : null} className="animate__animated animate__flip m-7">
+    <CardContainer data-testid="card-test" onClick={!locked ? onClick : null} className="animate__animated animate__flip m-7">
       <CardInner $flipped={flipped}>
         <FrontFace theme={currentTheme}>
           <Background />

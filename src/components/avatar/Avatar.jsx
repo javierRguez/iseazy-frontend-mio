@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import useTheme from '../../hooks/useTheme'
 
 
 const AvatarContainer = styled.div`
@@ -20,7 +21,9 @@ const AvatarImage = styled.div`
   background-repeat: no-repeat;
 `
 
-const Avatar = ({ currentTheme, src }) => {
+const Avatar = ({ src }) => {
+  const { currentTheme } = useTheme()
+
   return (
     <AvatarContainer className='rounded-full' theme={currentTheme}><AvatarImage src={src} /></AvatarContainer>
   )

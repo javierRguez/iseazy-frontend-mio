@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import useTheme from '../../hooks/useTheme'
 
 const Button = styled.button`
   background-color: ${(props) => props.theme.button.primary};
@@ -20,7 +21,9 @@ const Label = styled.p`
   font-weight: 700;
 `
 
-const StartButton = ({ currentTheme, label, onClick }) => {
+const StartButton = ({ label, onClick }) => {
+  const { currentTheme } = useTheme()
+
   return (
     <Button
       onClick={onClick}

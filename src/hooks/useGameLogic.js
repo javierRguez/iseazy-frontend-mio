@@ -67,7 +67,7 @@ export const useGameLogic = (initialImages) => {
 
   const resetGame = () => {
     setFlippedCards([]);
-    setBoardState(new Array(18).fill(false));
+    setBoardState(new Array(initialImages.length * 2).fill(false));
 
     setTimeout(() => {
       shufflingCards()
