@@ -2,8 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import image1 from '../assets/img/cards/image1.png'
 import image2 from '../assets/img/cards/image2.png'
-
-
+import image3 from '../assets/img/cards/image3.png'
+import image4 from '../assets/img/cards/image4.png'
+import image5 from '../assets/img/cards/image5.png'
+import image6 from '../assets/img/cards/image6.png'
+import image7 from '../assets/img/cards/image7.png'
+import image8 from '../assets/img/cards/image8.png'
+import image9 from '../assets/img/cards/image9.png'
 import useTheme from '../hooks/useTheme'
 import Card from '../components/card/Card'
 import styled from 'styled-components';
@@ -31,8 +36,8 @@ const GameBoardContainer = () => {
   const dispatch = useDispatch();
   const { currentTheme } = useTheme()
   const [isModalOpen, setModalOpen] = useState(false);
-  const images = [image1,
-    image2]
+  const images = [image1, image2, image3, image4, image5, image6, image7, image8, image9
+  ]
   const {
     time,
     startTimer,
