@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import fontCard from '../../assets/img/cards/card_back.png'
+import useTheme from '../../hooks/useTheme';
 
 
 const CardContainer = styled.div`
@@ -26,10 +27,11 @@ const CardFace = styled.div`
 `;
 
 const FrontFace = styled(CardFace)`
-  display: flex;
+background-color:${(props) => props.theme.background.card};
+display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 4rem;
+  font-size: 4rem;  
   position: relative;
   box-shadow: 0px 3px 6px #00000033;
 `;
@@ -65,14 +67,16 @@ const Image = styled.img`
 `;
 
 const Card = ({ imageSrc, imageAlt, number, onClick, locked, flipped }) => {
+  const { currentTheme } = useTheme()
+
   return (
     <CardContainer onClick={!locked ? onClick : null} className="animate__animated animate__flip m-7">
       <CardInner $flipped={flipped}>
-        <FrontFace className="flex items-center justify-center text-4xl">
+        <FrontFace theme={currentTheme}>
           <Background />
           {number}
         </FrontFace>
-        <BackFace className="flex items-center justify-center">
+        <BackFace >
           <Image src={imageSrc} alt={imageAlt} />
         </BackFace>
       </CardInner>

@@ -4,6 +4,7 @@ const lightTheme = {
     secondary: '#FFFFFF',
   },
   background: {
+    card: '#F4F4F4',
     primary: '#F4F4F4',
     modal: '#FFFFFF',
     modalOverlay: '#00000099',
@@ -18,15 +19,20 @@ const lightTheme = {
 
 const darkTheme = {
   text: {
-    primary: '#333333',
-    secondary: '#FFFFFF',
+    primary: '#EDEDED',
+    secondary: '#FFFFFF'
   },
   background: {
-    primary: '#F4F4F4',
-    modal: '#FFFFFF',
+    card: '#F4F4F4',
+    primary: '#1E1E1E',
+    modal: '#333333',
+    modalOverlay: '#00000099',
+    avatar: "#444444"
   },
   button: {
     primary: '#E50A4F',
+    primaryHover: '#C0073F',
+    primaryActive: '#A0052E',
   },
 }
 
