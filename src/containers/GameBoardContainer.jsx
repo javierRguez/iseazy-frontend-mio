@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import image1 from '../assets/img/cards/image1.png'
 import image2 from '../assets/img/cards/image2.png'
 
@@ -9,6 +10,8 @@ import styled from 'styled-components';
 import Timer from '../components/timer/Timer'
 import { useGameLogic } from '../hooks/useGameLogic';
 import FinishGameModal from '../components/modal/FinishGameModal';
+import { ActionTypesScoreBoard } from '../constants/enums/actionTypesScoreBoard';
+import { formatDateTime } from '../utils/utils';
 
 const GameBoardGrid = styled.div`
   display: grid;
@@ -25,8 +28,11 @@ const TimerContainer = styled.div`
 `;
 
 const GameBoardContainer = () => {
+  const dispatch = useDispatch();
   const { currentTheme } = useTheme()
   const [isModalOpen, setModalOpen] = useState(false);
+  const images = [image1,
+    image2]
   const {
     time,
     startTimer,
@@ -36,8 +42,7 @@ const GameBoardContainer = () => {
     handleCardClick,
     stopTimer,
     resetGame,
-  } = useGameLogic([image1,
-    image2,]);
+  } = useGameLogic(images);
 
   useEffect(() => {
     startTimer();
@@ -50,9 +55,9 @@ const GameBoardContainer = () => {
 
 
   useEffect(() => {
-    if (lockedCards.size === 4) {  // Asume que tienes 18 cartas
+    if (lockedCards.size === images.length * 2) {
+      onFinishGame()
 
-      setModalOpen(true);
     }
   }, [lockedCards]);
 
@@ -62,11 +67,17 @@ const GameBoardContainer = () => {
 
   const onCloseModal = () => {
     setModalOpen(false)
+    resetGame()
   }
 
   const onClickRestartGame = () => {
     onCloseModal()
-    resetGame()
+  }
+
+  const onFinishGame = () => {
+    const newScore = { date: formatDateTime(new Date()), score: time }
+    dispatch({ type: ActionTypesScoreBoard.ADD_SCORE, payload: newScore });
+    setModalOpen(true);
   }
 
   return (

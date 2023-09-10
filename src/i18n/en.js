@@ -8,6 +8,11 @@ export const eng = {
     finish: 'Completed!',
     playAgainButton: 'Play again'
   },
+  scoreBoard: {
+    title: 'Top Scores',
+    date: 'Date',
+    score: 'Score'
+  },
   languages: {
     es: 'Spanish',
     en: 'English',
